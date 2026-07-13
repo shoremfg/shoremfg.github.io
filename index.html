@@ -141,6 +141,7 @@
       <p>We're just getting started. Sign up to be the first to know.</p>
 
       <form
+        id="bd-form"
         action="https://buttondown.com/api/emails/embed-subscribe/shoremfg"
         method="post"
         class="embeddable-buttondown-form"
@@ -150,6 +151,8 @@
         <button type="submit">Subscribe</button>
       </form>
 
+      <p class="note" id="bd-confirm" style="display:none;">Thanks — you're on the list.</p>
+
       <p class="privacy">
         No analytics, no trackers, no selling your info. Ever.
         We'll only email you when a new drop releases. Nothing else.
@@ -157,6 +160,31 @@
     </div>
   </div>
 
+  <script>
+    // Buttondown's form normally does a full-page redirect on submit.
+    // Submitting via fetch() instead keeps the visitor on this page.
+    // Note: Buttondown's endpoint doesn't send back CORS headers, so
+    // the response is "opaque" — we can't actually read success/failure
+    // from it. We optimistically show the confirmation once the request
+    // has been sent; a bad email format is still caught beforehand by
+    // the browser's built-in "required" + type="email" validation.
+    const bdForm = document.getElementById('bd-form');
+
+    bdForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(bdForm);
+
+      fetch(bdForm.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      }).finally(function () {
+        bdForm.style.display = 'none';
+        document.getElementById('bd-confirm').style.display = 'block';
+      });
+    });
+  </script>
 
 </body>
 </html>
