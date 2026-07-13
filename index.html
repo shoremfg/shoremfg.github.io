@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shore Mfg</title>
+<style>
+  :root {
+    --sage: #a8b99b;
+    --plum: #4a2f3a;
+    --plum-light: #6b4756;
+    --cream: #f4f1ea;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  body {
+    background: var(--sage);
+    color: var(--plum);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    margin: 0 auto 40px;
+    display: block;
+  }
+
+  .newsletter {
+    margin-top: 8px;
+  }
+
+  .newsletter p {
+    margin: 0 0 18px;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    color: var(--plum-light);
+  }
+
+  form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  input[type="email"] {
+    flex: 1 1 220px;
+    padding: 12px 16px;
+    border: 2px solid var(--plum);
+    border-radius: 4px;
+    background: var(--cream);
+    color: var(--plum);
+    font-size: 15px;
+    outline: none;
+  }
+
+  input[type="email"]::placeholder {
+    color: #8a7480;
+  }
+
+  input[type="email"]:focus {
+    border-color: var(--plum-light);
+  }
+
+  button {
+    padding: 12px 24px;
+    border: 2px solid var(--plum);
+    border-radius: 4px;
+    background: var(--plum);
+    color: var(--cream);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  button:hover {
+    background: var(--plum-light);
+    border-color: var(--plum-light);
+  }
+
+  .note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--plum-light);
+  }
+
+  .privacy {
+    margin-top: 16px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--plum-light);
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+    <img class="logo" src="shore-mfg-logo.png" alt="Shore Mfg">
+
+    <div class="newsletter">
+      <p>We're just getting started. Sign up to be the first to know.</p>
+
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/shoremfg"
+        method="post"
+        class="embeddable-buttondown-form"
+      >
+        <label for="bd-email" class="visually-hidden">Enter your email</label>
+        <input type="email" name="email" id="bd-email" placeholder="you@email.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <p class="privacy">
+        No analytics, no trackers, no selling your info. Ever.
+        We'll only email you when a new drop releases. Nothing else.
+      </p>
+    </div>
+  </div>
+
+
+</body>
+</html>
